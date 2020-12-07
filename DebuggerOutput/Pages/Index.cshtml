@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<h1 class="display-4">Request Headers</h1>
+@if (Model.NoHeadersAvailable)
+{
+  <p class="lead text-danger">No Headers available</p>
+}
+else
+{
+  <dl>
+    @foreach (var header in Model.Headers)
+    {
+      <dt>@header.Key</dt>
+      <dd>@header.Value</dd>
+    }
+  </dl>
+}
+<hr />
+<br />
+
+
+<h1 class="display-4">Query Parameters</h1>
+@if (Model.NoQueriesAvailable)
+{
+  <p class="lead text-danger">No Query Parameters available</p>
+}
+else
+{
+  <dl>
+    @foreach (var query in Model.QueryParms)
+    {
+      <dt>@query.Key</dt>
+      <dd>@query.Value</dd>
+    }
+  </dl>
+}
+<hr />
+<br />
+
+
+<h1 class="display-4">Cookies</h1>
+@if (Model.NoCookiesAvailable)
+{
+  <p class="lead text-danger">No Cookies available</p>
+}
+else
+{
+  <dl>
+    @foreach (var cookie in Model.Cookies)
+    {
+      <dt>@cookie.Key</dt>
+      <dd>@cookie.Value</dd>
+    }
+  </dl>
+}
+<hr />
+<br />
